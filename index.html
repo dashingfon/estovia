@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Baerz &amp; Co | Personal Property Advisors for Luxury Homes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Playfair+Display&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F1ECE2; --navy:#1C2B42; --navy-dark:#142238; --ink:#1E1E1E; --grey:#494949;
+  --gold:#C4AB7F; --line:#BCB9B2; --serif:'Playfair Display',Georgia,serif; --sans:'Montserrat',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);font-size:12px;line-height:1.33;-webkit-font-smoothing:antialiased;color:var(--ink);background:#fff}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+h1,h2{font-family:var(--serif);font-weight:400;line-height:1.4}
+h1{font-size:clamp(36px,5vw,66px);color:#fff;margin-bottom:48px}
+h2{font-size:clamp(30px,3.5vw,49px);color:var(--ink)}
+p{font-size:16px;line-height:1.4;color:var(--grey)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;height:54px;padding:16px 48px;border:.8px solid var(--ink);border-radius:10px;font:500 16px/1.4 var(--sans);color:var(--ink);background:none;cursor:pointer}
+.btn--light{border-color:#fff;color:#fff}
+.section{padding:120px 4.44% 120px 13.75%}
+.split{display:flex;align-items:center;gap:85px}
+.split__media{flex:0 0 513px;max-width:100%}
+.split__media img{width:100%;height:auto}
+.split__body{flex:2;display:flex;flex-direction:column;align-items:flex-start;gap:48px}
+.split__text{display:flex;flex-direction:column;gap:16px;max-width:900px}
+.divider{display:flex;align-items:center;gap:6%;padding:20px 13.75%}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--gold)}
+.divider span{font:16px var(--serif);color:#BE9C7E;letter-spacing:.2em;white-space:nowrap}
+
+/* Header */
+.header{position:absolute;top:0;left:0;width:100%;z-index:100;color:#fff}
+.header__top{max-width:1336px;margin:0 auto;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.header__social,.header__tools{display:flex;align-items:center;gap:16px;font-weight:500;font-size:14px}
+.logo{display:flex;flex:1;align-items:center;justify-content:center}
+.logo::before,.logo::after{content:"";flex:1;max-width:390px;height:1px;background:#BDBDBD}
+.logo a{margin:0 24px;font:28px var(--serif);color:#fff;letter-spacing:.04em}
+.nav{max-width:1350px;margin:10px auto 0;padding:0 16px;display:flex;justify-content:center;flex-wrap:wrap}
+.nav a{padding:10px 16px;font:500 16px/1.5 var(--sans);position:relative}
+.nav a + a::before{content:"";position:absolute;left:0;top:50%;height:11px;width:1px;background:#BDBDBD;transform:translateY(-50%)}
+
+/* Hero */
+.hero{position:relative;display:flex;align-items:center;justify-content:center;min-height:814px;text-align:center;
+  background:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.25)),#3a4a5e center/cover}
+.hero__inner{position:relative;z-index:1;padding:64px 16px 0;display:flex;flex-direction:column;align-items:center}
+.hero__search{display:flex;align-items:center;width:100%;max-width:440px;padding:24px 16px;border:.8px solid #fff;border-radius:10px;background:rgba(0,0,0,.24);backdrop-filter:blur(24px);color:#fff;font-size:18px;line-height:1.2}
+.hero__search span{flex:1}
+
+/* Intro / curated */
+.intro{background:var(--cream)}
+.intro .split{flex-direction:row-reverse;align-items:flex-start}
+.curated{background:var(--navy)}
+.curated h2,.curated p{color:#fff}
+.curated p{color:#E8E8E8}
+.curated .split__body{padding-right:85px}
+
+/* Featured */
+.featured{background:#fff;padding:120px 20px;overflow:hidden}
+.featured__wrap{max-width:1835px;margin:0 auto 0 65px;width:calc(100% - 45px)}
+.featured__head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:64px}
+.arrows{display:flex;gap:12px}
+.arrows span{width:52px;height:52px;border:.8px solid var(--ink);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px}
+.cards{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px;margin:-6px;scrollbar-width:thin}
+.card{flex:0 0 424px;scroll-snap-align:start;display:flex;flex-direction:column}
+.card__img{position:relative;aspect-ratio:510/340;background:#ddd center/cover}
+.card__heart{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:6px;background:rgba(0,0,0,.48);display:flex;align-items:center;justify-content:center}
+.card__body{flex:1;display:flex;flex-direction:column;padding:24px;border:.8px solid #E8E8E8;border-top:0}
+.card__title{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;font:24px/1.4 var(--serif)}
+.card__flag{width:21px;height:15px;border-radius:3px;background:center/cover}
+.card__stats{margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);padding:16px 0;border-top:.8px dashed #ccc;border-bottom:.8px dashed #ccc;font-size:14px;line-height:1.5;color:var(--grey)}
+.card__stats li{display:flex;align-items:center;gap:6px}
+.card__stats svg{width:24px;height:24px;flex-shrink:0;fill:none;stroke:var(--grey);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.card__price{margin-top:32px;font:500 18px/1.4 var(--sans)}
+.featured__cta{display:flex;justify-content:center;margin-top:48px}
+
+/* Search / forms */
+.search{background:var(--cream);padding:130px 13.8% 90px;display:flex;flex-direction:column;gap:80px;overflow:hidden}
+.search__top{display:flex;gap:9.2%;align-items:flex-start}
+.search__top img{flex:0 0 29.8%;transform:rotate(-7deg)}
+.search__top div{display:flex;flex-direction:column;gap:50px}
+.features{display:grid;grid-template-columns:repeat(5,1fr);gap:32px 2.9%}
+.features svg{width:24px;height:24px;margin-bottom:32px;fill:none;stroke:var(--ink);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.features p{font-size:14px}
+.form-section{position:relative;background:var(--cream);padding:90px 10.56% 0 13.75%;overflow:hidden}
+.form-section--white{background:#fff;padding-top:96px}
+.form-section__grid{display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
+.form-section__fig{flex:0 0 31%;align-self:flex-end}
+.form-section__fig img{width:100%;height:auto}
+.form{flex:0 0 47%;display:flex;flex-direction:column;gap:32px;margin-bottom:100px}
+.form__row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.form__selects{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.field,.form select,.form input[type=text],.form input[type=email],.form input[type=tel],.form textarea{
+  width:100%;padding:12px 6px;border:0;border-bottom:.8px solid var(--line);background:transparent;
+  font:italic 14px/1.5 var(--sans);color:var(--ink);border-radius:0;outline:0}
+.form textarea{resize:vertical;min-height:44px}
+.form__consent{display:flex;align-items:center;gap:10px;font-size:10px;line-height:1;color:var(--grey)}
+.form__consent input{width:20px;height:20px;accent-color:var(--grey);flex-shrink:0}
+.form__consent u{font-weight:600;font-style:italic;text-transform:lowercase}
+.lead{font:italic 500 18px/1.5 var(--sans);color:var(--ink)}
+
+/* Video / pitfalls */
+.pitfalls{background:#fff}
+.pitfalls .split{flex-direction:row-reverse;align-items:flex-start;gap:7.2%}
+.pitfalls__video{flex:0 0 34%;aspect-ratio:16/9;margin-right:4.75%;background:#e9e9e9}
+.pitfalls .split__body{gap:16px}
+.pitfalls h2{margin-bottom:16px}
+.pitfalls p + p{margin-top:32px}
+
+/* Guide */
+.guide{background:#fff;padding:110px 20px}
+.guide__inner{display:flex;gap:20px;align-items:flex-start}
+.guide__img{flex:0 0 513px;height:300px;background:center/contain no-repeat}
+.guide .form{flex:1;margin:0 0 26px}
+.guide .form__row{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.guide .note{font-size:10px;line-height:1.4;color:var(--grey)}
+
+/* Equestrian */
+.equestrian{background:var(--cream)}
+.equestrian .split{flex-direction:row-reverse;align-items:flex-start;padding-top:130px;padding-bottom:90px}
+.equestrian .split__media{flex-basis:405px}
+
+/* Footer */
+.footer{background:var(--navy-dark);color:#fff;padding-bottom:210px;position:relative;overflow:hidden}
+.footer__in{max-width:1600px;margin:0 auto;padding:96px 20px 48px}
+.footer__brand{display:flex;align-items:center;gap:24px;height:56px;margin-bottom:48px}
+.footer__brand::before,.footer__brand::after{content:"";flex:1;border-top:.8px solid rgba(255,255,255,.4)}
+.footer__brand span{font:32px var(--serif);letter-spacing:.04em}
+.footer__cols{display:flex;gap:20px}
+.footer__col{flex:1;display:flex;flex-direction:column;gap:32px}
+.footer__col h4{font:400 14px/1.5 var(--sans);color:rgba(255,255,255,.5);margin-bottom:16px}
+.footer__col li{font-size:14px;line-height:1.5;margin-bottom:12px}
+.footer__follow{margin-top:auto;font-size:14px;color:rgba(255,255,255,.5)}
+.footer__follow div{display:flex;gap:16px;margin-top:16px;color:#fff}
+.dash{border-top:.8px dashed rgba(255,255,255,.3)}
+.logos{display:flex;overflow-x:auto;scrollbar-width:none;padding:0}
+.logos img{flex:0 0 160px;height:68px;padding:16px 30px;object-fit:contain;opacity:.85}
+.offices{display:grid;grid-template-columns:repeat(6,1fr);gap:40px 24px}
+.offices h5{font:500 14px/1.5 var(--sans);min-height:42px}
+.offices p{font-size:12px;line-height:1.5;color:#E8E8E8}
+.legal{max-width:1600px;margin:0 auto;padding:48px 20px 0;display:flex;flex-direction:column;gap:32px}
+.legal ul{display:flex;flex-wrap:wrap;justify-content:space-between;padding:0 60px}
+.legal li{padding:4px 8px;font-size:12px;line-height:1.5}
+.legal li + li{border-left:.8px solid rgba(255,255,255,.5)}
+.legal small{text-align:center;font-size:12px;line-height:1.5}
+.footer__mark{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:100%;max-width:1500px;text-align:center;
+  font:clamp(80px,17vw,214px)/.9 var(--serif);color:var(--navy-dark);filter:brightness(1.5);white-space:nowrap;pointer-events:none;opacity:.6}
+
+/* Responsive */
+@media (max-width:1100px){
+  .split,.intro .split,.pitfalls .split,.equestrian .split,.search__top,.form-section__grid,.guide__inner{flex-direction:column;align-items:stretch}
+  .section,.search,.form-section{padding-left:5%;padding-right:5%}
+  .split__media,.search__top img,.form-section__fig,.form,.pitfalls__video,.guide__img{flex:none;width:100%;margin:0}
+  .guide__img{height:240px}
+  .features{grid-template-columns:repeat(2,1fr)}
+  .form__selects{grid-template-columns:repeat(2,1fr)}
+  .featured__wrap{margin-left:auto}
+  .card{flex-basis:300px}
+  .footer__cols{flex-wrap:wrap}.footer__col{flex:1 1 40%}
+  .offices{grid-template-columns:repeat(2,1fr)}
+  .nav a{padding:8px 10px;font-size:14px}
+  .legal ul{padding:0}
+}
+</style>
+</head>
+<body>
+
+<!-- Icon sprites -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-area" viewBox="0 0 18 18"><path d="M9.563 8.438H3.375V14.625H9.563V8.438Z"/><path d="M14.625 12.938V14.063C14.625 14.212 14.566 14.355 14.46 14.46C14.355 14.566 14.212 14.625 14.063 14.625H12.375"/><path d="M14.625 7.875V10.125"/><path d="M12.938 3.375H14.063C14.212 3.375 14.355 3.434 14.46 3.54C14.566 3.645 14.625 3.788 14.625 3.938V5.063"/><path d="M7.875 3.375H10.125"/><path d="M3.375 5.625V3.938C3.375 3.788 3.434 3.645 3.54 3.54C3.645 3.434 3.788 3.375 3.938 3.375H5.063"/></symbol>
+  <symbol id="i-plot" viewBox="0 0 19.5 19.5"><path d="M12.75 3.75H15.75V6.75"/><path d="M6.75 15.75H3.75V12.75"/><path d="M18 .75H1.5C1.086.75.75 1.153.75 1.65V17.85C.75 18.347 1.086 18.75 1.5 18.75H18C18.414 18.75 18.75 18.347 18.75 17.85V1.65C18.75 1.153 18.414.75 18 .75Z"/></symbol>
+  <symbol id="i-bed" viewBox="0 0 24 24"><path d="M10.5 15.75V7.5H20.25C21.045 7.5 21.808 7.816 22.371 8.379C22.934 8.941 23.25 9.704 23.25 10.5V15.75"/><path d="M2.25 19.5V4.5"/><path d="M2.25 15.75H23.25V19.5"/><path d="M10.5 7.5H2.25"/></symbol>
+  <symbol id="i-bath" viewBox="0 0 24 24"><path d="M6.75 18V20.25"/><path d="M17.25 18V20.25"/><path d="M18.75 9H12.75V13.5H18.75V9Z"/><path d="M18.75 9.75H22.5V13.5C22.5 14.694 22.026 15.838 21.182 16.682C20.338 17.526 19.194 18 18 18H6C4.807 18 3.662 17.526 2.818 16.682C1.974 15.838 1.5 14.694 1.5 13.5V9.75H12.75"/><path d="M5.25 9.75V4.875C5.25 4.378 5.448 3.901 5.799 3.549C6.151 3.198 6.628 3 7.125 3C7.562 2.999 7.986 3.147 8.327 3.42C8.668 3.693 8.905 4.074 9 4.5"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 20 20"><path d="M18.75 7.969C18.75 13.438 10.641 17.864 10.296 18.047C10.205 18.096 10.103 18.122 10 18.122C9.897 18.122 9.795 18.096 9.704 18.047C9.359 17.864 1.25 13.438 1.25 7.969C1.251 6.685 1.762 5.453 2.67 4.545C3.578 3.637 4.81 3.126 6.094 3.125C7.707 3.125 9.12 3.819 10 4.991C10.88 3.819 12.293 3.125 13.906 3.125C15.19 3.126 16.422 3.637 17.33 4.545C18.238 5.453 18.749 6.685 18.75 7.969Z"/></symbol>
+</svg>
+
+<!-- Header -->
+<header class="header">
+  <div class="header__top">
+    <div class="header__social"><a href="#">f</a><a href="#">ig</a><a href="#">in</a></div>
+    <div class="logo"><a href="#">BAERZ &amp; CO</a></div>
+    <div class="header__tools"><span>&#9786;</span><span>&#9825;</span><span>EN &#8964;</span></div>
+  </div>
+  <nav class="nav">
+    <a href="#">Buy</a><a href="#">Property Finders</a><a href="#">Sell</a><a href="#">Off-Market</a>
+    <a href="#">Baerz Auctions</a><a href="#">News &amp; Insights</a><a href="#">About Us</a><a href="#">Contact</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero__inner">
+    <h1>Personal Property Advisors<br>for Luxury Homes</h1>
+    <div class="hero__search"><span>Where Would You Rather Live ?</span>&#128269;</div>
+  </div>
+</section>
+
+<!-- Intro -->
+<section class="intro section">
+  <div class="split">
+    <div class="split__media"><img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/5GWY13KV0K7VARH7TTY5JEQNKD.webp" alt=""></div>
+    <div class="split__body">
+      <h2>Trusted by sellers.<br><br>Preferred by buyers.<br><br>Driven by boutique brokers.</h2>
+      <div class="split__text">
+        <p>In a landscape defined by excess and duplicates, Baerz &amp; Co offers a groundbreaking standard of qualified insight and seamless experience that sets a new benchmark in international real estate. Clients navigating high-end acquisitions deserve to be guided with insight, attention, and a personal property advisor who knows their market and advocates with intent.</p>
+        <p>Through a peer-to-peer network of boutique brokers and independent personal advisors, Baerz &amp; Co delivers tailored access to prime real estate across Europe’s most refined markets and beyond. This is where service and expertise return to their rightful form: precise, personal, and built entirely around you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Curated -->
+<section class="curated section" style="padding-left:4.44%;padding-right:13.75%">
+  <div class="split">
+    <div class="split__media"><img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/545PZDYT712ASJRNE68Y8CJPHV.webp" alt=""></div>
+    <div class="split__body">
+      <h2>A curated approach<br><br>defined by your<br><br>priorities</h2>
+      <p>Your representation is defined by expertise, independence, and a personal approach that reflects what matters most to you. From inquiring to signing and well beyond the transfer of ownership, you are supported and guided at every stage. Every detail is handled with precision and attention, delivered as a bespoke standard of service that ensures your interests are represented at the highest level.</p>
+      <a class="btn btn--light" href="#">Discover our Bespoke Approach</a>
+    </div>
+  </div>
+</section>
+
+<!-- Featured homes -->
+<section class="featured">
+  <div class="featured__wrap">
+    <div class="featured__head">
+      <h2>Featured luxury<br><br>homes for sale</h2>
+      <div class="arrows"><span>&#8249;</span><span>&#8250;</span></div>
+    </div>
+    <div class="cards">
+      <!-- Card template: image, name, flag, stats (area, plot, beds, baths), price -->
+      <article class="card"><div class="card__img" style="background-image:url(https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/61TBHVSV8EQZM2KPKBGHANC1RG.jpg)"><span class="card__heart"><svg width="20" height="20" fill="none" stroke="#E8E8E8" stroke-width="2"><use href="#i-heart"/></svg></span></div><div class="card__body"><div class="card__title">VAL THORENS<span class="card__flag" style="background-image:url(https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/6P7EMAT4M76KWRXWS04M53Z30H.svg)"></span></div><ul class="card__stats"><li><svg><use href="#i-area"/></svg>49m²</li><li><svg><use href="#i-plot"/></svg>N/A</li><li><svg><use href="#i-bed"/></svg>1</li><li><svg><use href="#i-bath"/></svg>1</li></ul><div class="card__price">€899,000</div></div></article>
+
+      <article class="card"><div class="card__img" style="background-image:url(https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/4HTR1RGDFTEZY6JVGVG2PH5BRM.jpg)"><span class="card__heart"><svg width="20" height="20" fill="none" stroke="#E8E8E8" stroke-width="2"><use href="#i-heart"/></svg></span></div><div class="card__body"><div class="card__title">Westendorf<span class="card__flag" style="background-image:url(https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/7FPTRRHYXJBP2EEKJ943SJNNCW.svg)"></span></div><ul class="card__stats"><li><svg><use href="#i-area"/></svg>227m²</li><li><svg><use href="#i-plot"/></svg>526m²</li><li><svg><use href="#i-bed"/></svg>4</li><li><svg><use href="#i-bath"/></svg>3</li></ul><div class="card__price">€1,250,000</div></div></article>
+
+      <article class="card"><div class="card__img" style="background-image:url(https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/7TZ62077NX93BM40ECXE38BM3Z.jpg)"><span class="card__heart"><svg width="20" height="20" fill="none" stroke="#E8E8E8" stroke-width="2"><use href="#i-heart"/></svg></span></div><div class="card__body"><div class="card__title">AMSTERDAM<span class="card__flag" style="background-image:url(https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/50Q673FN0XYAXSGME65WP9ATKK.svg)"></span></div><ul class="card__stats"><li><svg><use href="#i-area"/></svg>92m²</li><li><svg><use href="#i-plot"/></svg>N/A</li><li><svg><use href="#i-bed"/></svg>3</li><li><svg><use href="#i-bath"/></svg>2</li></ul><div class="card__price">€975,000</div></div></article>
+
+      <article class="card"><div class="card__img" style="background-image:url(https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/6K018YWDW4YMS6QY19CT7SR3BA.jpg)"><span class="card__heart"><svg width="20" height="20" fill="none" stroke="#E8E8E8" stroke-width="2"><use href="#i-heart"/></svg></span></div><div class="card__body"><div class="card__title">BREDA<span class="card__flag" style="background-image:url(https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/50Q673FN0XYAXSGME65WP9ATKK.svg)"></span></div><ul class="card__stats"><li><svg><use href="#i-area"/></svg>660m²</li><li><svg><use href="#i-plot"/></svg>5060m²</li><li><svg><use href="#i-bed"/></svg>6</li><li><svg><use href="#i-bath"/></svg>N/A</li></ul><div class="card__price">€4,250,000</div></div></article>
+
+      <article class="card"><div class="card__img" style="background-image:url(https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/60DWSF3V1V5R6THXVTB5AA6NMN.jpg)"><span class="card__heart"><svg width="20" height="20" fill="none" stroke="#E8E8E8" stroke-width="2"><use href="#i-heart"/></svg></span></div><div class="card__body"><div class="card__title">Boadilla del Monte<span class="card__flag" style="background-image:url(https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/628CGD3FPF5GEXNPVRH5VEFS0N.svg)"></span></div><ul class="card__stats"><li><svg><use href="#i-area"/></svg>472m²</li><li><svg><use href="#i-plot"/></svg>2264m²</li><li><svg><use href="#i-bed"/></svg>4</li><li><svg><use href="#i-bath"/></svg>3</li></ul><div class="card__price">€1,750,000</div></div></article>
+
+      <article class="card"><div class="card__img" style="background-image:url(https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/3HJ8XV8VFYEY03KPN3BGTTD7Z8.jpg)"><span class="card__heart"><svg width="20" height="20" fill="none" stroke="#E8E8E8" stroke-width="2"><use href="#i-heart"/></svg></span></div><div class="card__body"><div class="card__title">OISTERWIJK<span class="card__flag" style="background-image:url(https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/50Q673FN0XYAXSGME65WP9ATKK.svg)"></span></div><ul class="card__stats"><li><svg><use href="#i-area"/></svg>200m²</li><li><svg><use href="#i-plot"/></svg>770m²</li><li><svg><use href="#i-bed"/></svg>4</li><li><svg><use href="#i-bath"/></svg>2</li></ul><div class="card__price">€1,595,000</div></div></article>
+
+      <article class="card"><div class="card__img" style="background-image:url(https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/37WJ0KWRVGFMXCYV19GTNKHSA2.jpg)"><span class="card__heart"><svg width="20" height="20" fill="none" stroke="#E8E8E8" stroke-width="2"><use href="#i-heart"/></svg></span></div><div class="card__body"><div class="card__title">Porto<span class="card__flag" style="background-image:url(https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/7T5D68VSJ7724X58T40NZFYM51.svg)"></span></div><ul class="card__stats"><li><svg><use href="#i-area"/></svg>208m²</li><li><svg><use href="#i-plot"/></svg>13m²</li><li><svg><use href="#i-bed"/></svg>3</li><li><svg><use href="#i-bath"/></svg>4</li></ul><div class="card__price">€2,100,000</div></div></article>
+
+      <article class="card"><div class="card__img" style="background-image:url(https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/2X0KVNDP8GJDH5AZ7F5V8YH2ZT.jpg)"><span class="card__heart"><svg width="20" height="20" fill="none" stroke="#E8E8E8" stroke-width="2"><use href="#i-heart"/></svg></span></div><div class="card__body"><div class="card__title">North Coast<span class="card__flag" style="background-image:url(https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/1ETYP8TCKVM00PDBR4MP5F6P4S.svg)"></span></div><ul class="card__stats"><li><svg><use href="#i-area"/></svg>1802m²</li><li><svg><use href="#i-plot"/></svg>N/A</li><li><svg><use href="#i-bed"/></svg>3</li><li><svg><use href="#i-bath"/></svg>3</li></ul><div class="card__price">€568,837</div></div></article>
+
+      <article class="card"><div class="card__img" style="background-image:url(https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/5PRPC1F8GHPH1QXBF0FW5FKZ7B.jpg)"><span class="card__heart"><svg width="20" height="20" fill="none" stroke="#E8E8E8" stroke-width="2"><use href="#i-heart"/></svg></span></div><div class="card__body"><div class="card__title">Courchevel<span class="card__flag" style="background-image:url(https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/6P7EMAT4M76KWRXWS04M53Z30H.svg)"></span></div><ul class="card__stats"><li><svg><use href="#i-area"/></svg>170m²</li><li><svg><use href="#i-plot"/></svg>N/A</li><li><svg><use href="#i-bed"/></svg>6</li><li><svg><use href="#i-bath"/></svg>5</li></ul><div class="card__price">€4,100,000</div></div></article>
+
+      <article class="card"><div class="card__img" style="background-image:url(https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/1BZ2RPCHVMDM9D686SDT7SR58T.jpg)"><span class="card__heart"><svg width="20" height="20" fill="none" stroke="#E8E8E8" stroke-width="2"><use href="#i-heart"/></svg></span></div><div class="card__body"><div class="card__title">MERIBEL LES ALLUES<span class="card__flag" style="background-image:url(https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/6P7EMAT4M76KWRXWS04M53Z30H.svg)"></span></div><ul class="card__stats"><li><svg><use href="#i-area"/></svg>134m²</li><li><svg><use href="#i-plot"/></svg>N/A</li><li><svg><use href="#i-bed"/></svg>3</li><li><svg><use href="#i-bath"/></svg>2</li></ul><div class="card__price">€4,800,000</div></div></article>
+    </div>
+    <div class="featured__cta"><a class="btn" href="#">View all properties</a></div>
+  </div>
+</section>
+
+<!-- Search service -->
+<section class="search">
+  <div class="search__top">
+    <img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/3DP8SN0ACY3YPFBPPV728WD9TM.webp" alt="">
+    <div>
+      <h2>The properties you prefer, and nothing more</h2>
+      <p>That’s why we created a search service that ensures your search is private, personal, and precise. Our Personal Property Advisors filter the market, remove the noise, and present only the homes that truly fit your preferences, including many that never appear online. Instead of chasing listings, you receive a clear and complete selection you can trust.</p>
+    </div>
+  </div>
+  <ul class="features">
+    <li><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M3 20.25C4.816 17.112 8.114 15 12 15C15.886 15 19.184 17.112 21 20.25"/></svg><p>One trusted contact focused solely on your interests</p></li>
+    <li><svg viewBox="0 0 24 24"><path d="M3.75 6H20.25M3.75 12H9M3.75 18H10.5"/><path d="M17.25 16.363L20.032 18L19.275 14.945L21.75 12.901L18.502 12.651L17.25 9.75L15.998 12.651L12.75 12.901L15.225 14.945L14.468 18Z"/></svg><p>Direct access to exclusive off-market listings</p></li>
+    <li><svg viewBox="0 0 20 20"><path d="M7.5 14.375V3.125M12.5 5.625V16.875"/><path d="M7.5 14.375L2.5 15.625V4.375L7.5 3.125L12.5 5.625L17.5 4.375V15.625L12.5 16.875L7.5 14.375Z"/></svg><p>Transparent guidance from local experts</p></li>
+    <li><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7.5"/><path d="M15.803 15.803L21 21"/></svg><p>A private search with no unwanted registrations</p></li>
+    <li><svg viewBox="0 0 32 32"><path d="M2 27H30M19 27V19H13V27M5 14.586V27M27 27V14.586"/><path d="M3 16.586L15.293 4.293C15.7 3.9 16.3 3.9 16.707 4.293L29 16.586"/></svg><p>A streamlined, and safe path to your new home</p></li>
+  </ul>
+</section>
+<div class="divider" style="background:var(--cream)"><span>&#8962;</span></div>
+
+<!-- Search smarter -->
+<section class="form-section">
+  <div class="form-section__grid">
+    <form class="form" onsubmit="return false">
+      <h2>Search smarter,<br><br>not harder</h2>
+      <div class="form__selects">
+        <select><option>Country</option></select>
+        <select><option>Location</option></select>
+        <select><option>Price</option></select>
+        <select><option>Property Type</option></select>
+      </div>
+      <div class="form__row"><input type="text" placeholder="First Name *" required><input type="text" placeholder="Last Name *" required></div>
+      <div class="form__row"><input type="email" placeholder="E-mail *" required><input type="tel" placeholder="Phone no."></div>
+      <textarea placeholder="Message"></textarea>
+      <label class="form__consent"><input type="checkbox"><span>I agree on receiving (marketing) communications from Baerz &amp; Co. Please see our <u>Privacy Policy</u> for more information. I can unsubscribe at any time.</span></label>
+      <button class="btn" type="submit" style="align-self:flex-start">Submit</button>
+    </form>
+    <div class="form-section__fig"><img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/76E6MB6CMDRHQVWTF0NCN0A747.webp" alt=""></div>
+  </div>
+</section>
+
+<!-- Pitfalls -->
+<section class="pitfalls">
+  <div class="section" style="padding-top:110px;padding-bottom:110px">
+    <div class="split">
+      <div class="pitfalls__video"></div>
+      <div class="split__body">
+        <h2>Buying abroad?<br><br>Avoid common pitfalls.</h2>
+        <p class="lead">Before you continue your property search, see what every buyer learns too late.</p>
+        <p>Every year, we see international buyers fall into the same traps. They spend weeks. They waste far too much time chasing duplicate listings, only to discover the properties are outdated or no longer available. They are registered as “clients” with agencies they never agreed to. Without realizing it, they end up listed as “registered clients” with multiple agencies. And too often, they rely on seller’s brokers who claim to serve both sides, a setup that rarely protects the buyer’s interests.</p>
+        <p>These are avoidable missteps, but only if you know where to look. In this short video, we share the three most common pitfalls that turn a dream search into a frustrating experience, and we show you how to approach the international market with clarity, confidence and the right support.</p>
+      </div>
+    </div>
+  </div>
+  <div class="divider"><span>&#8962;</span></div>
+</section>
+
+<!-- Guide -->
+<section class="guide">
+  <div class="guide__inner">
+    <div class="guide__img" style="background-image:url(https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/40ME9BA36F1SRVGYSA5M28F1N9.webp)"></div>
+    <form class="form" onsubmit="return false">
+      <h2>Access your free guide for safe<br><br>international property buying</h2>
+      <select><option>Select Country *</option></select>
+      <div class="form__row"><input type="text" placeholder="First Name *" required><input type="text" placeholder="Last Name *" required></div>
+      <div class="form__row"><input type="email" placeholder="E-mail *" required><input type="tel" placeholder="Phone no."></div>
+      <p class="note">By submitting this form, you agree that Baerz &amp; Co may use your information to process and respond to your request. Please see our <u><b><i>privacy policy</i></b></u> for information on how we handle your personal data.</p>
+      <button class="btn" type="submit" style="align-self:flex-start">Submit</button>
+    </form>
+  </div>
+</section>
+
+<!-- Equestrian -->
+<section class="equestrian">
+  <div class="split" style="padding-left:13.75%;padding-right:4.44%">
+    <div class="split__media"><img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/7JXDGFK3QQ5K2VNWY887BDZX5D.webp" alt=""></div>
+    <div class="split__body" style="gap:50px">
+      <h2>Exquisite<br><br>equestrian properties</h2>
+      <p style="max-width:900px">Welcome to our exclusive selection of high-quality equestrian properties. Our experts are here to guide you through the purchase or sale of luxury equestrian properties and farmhouses with horse stables. The Netherlands enjoy global recognition in the equestrian world, not only due to its favorable geographic location but also because of the exceptional performances of Dutch horses at the top international level. Discover here the perfect location for your (professional) equestrian activities.</p>
+      <a class="btn" href="#">Explore Equestrian Properties</a>
+    </div>
+  </div>
+</section>
+
+<!-- Notification service -->
+<section class="form-section form-section--white">
+  <div class="form-section__grid">
+    <div class="form-section__fig" style="flex-basis:31%"><img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/76E6MB6CMDRHQVWTF0NCN0A747.webp" alt=""></div>
+    <form class="form" style="flex-basis:46.6%;margin-bottom:96px" onsubmit="return false">
+      <h2>Notification service</h2>
+      <p class="lead">Please keep me posted by e-mail on all latest property listings in the area(s) I select below.</p>
+      <div class="form__selects">
+        <select><option>Country</option></select>
+        <select><option>Location</option></select>
+        <select><option>Price</option></select>
+        <select><option>Property Type</option></select>
+      </div>
+      <div class="form__row"><input type="text" placeholder="First Name *" required><input type="text" placeholder="Last Name *" required></div>
+      <div class="form__row"><input type="email" placeholder="E-mail *" required><input type="tel" placeholder="Phone no."></div>
+      <textarea placeholder="Message"></textarea>
+      <label class="form__consent"><input type="checkbox"><span>I agree on receiving (marketing) communications from Baerz &amp; Co. Please see our <u>Privacy Policy</u> for more information. I can unsubscribe at any time.</span></label>
+      <button class="btn" type="submit" style="align-self:flex-start">Submit</button>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer__in">
+    <div class="footer__brand"><span>BAERZ &amp; CO</span></div>
+    <div class="footer__cols">
+      <div class="footer__col">
+        <div><h4>Buy</h4><ul><li>Buy</li><li>New Developments</li></ul></div>
+        <div><h4>Sell</h4><ul><li>Private Seller (owner)</li><li>Professional seller (agent)</li><li>Luxury Property Developers</li></ul></div>
+      </div>
+      <div class="footer__col">
+        <div><h4>Off-Market</h4><ul><li>Sell</li><li>Buy</li></ul></div>
+        <div><h4>Baerz Auctions</h4><ul><li>Sell</li><li>Buy</li><li>Professional seller (agent)</li><li>How it works</li></ul></div>
+      </div>
+      <div class="footer__col">
+        <div><h4>About Us</h4><ul><li>Our Company</li><li>Operational Team</li><li>Baerz &amp; Co International</li><li>Baerz &amp; Co Netherlands - Offices</li><li>Baerz &amp; Co Agents</li><li>Interior partners</li></ul></div>
+      </div>
+      <div class="footer__col">
+        <ul><li>Equestrian Estates</li><li>Property Finders</li><li>Contact</li><li>Baerz &amp; Co Magazine</li><li>News &amp; Insights</li></ul>
+        <div class="footer__follow">Follow Us:<div><span>f</span><span>ig</span><span>in</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dash"></div>
+  <div class="logos">
+    <img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/4F08WP80YPDQW3FTP1NH5ZWDB0.png" alt="">
+    <img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/0NP3BS4P94ZDB0VT7F58RNRWXE.png" alt="">
+    <img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/1CSPV4ZW0HNBSZ8DDY2XCBJMHV.png" alt="">
+    <img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/0KG92JR9W63685Q2HD6H7GX0CR.png" alt="">
+    <img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/792VBTS3ETNF003VGF8HJN4RVR.png" alt="">
+    <img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/3HE1KXDVDW4FSAKJ4ZHV2X86VA.png" alt="">
+    <img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/0EEF6138JQE3JQCERMB4N9YP6D.png" alt="">
+    <img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/7FS3ARDRXWV7X6F06DQRXK8CCJ.png" alt="">
+    <img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/6D9ASJHCCEWY65ACKVJ3CZDKYM.png" alt="">
+    <img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/3ZKBEMGGXEP763ECMNM2DJDJB4.png" alt="">
+    <img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/246MD5603H4VZXR3EJ9EW8JQNQ.png" alt="">
+    <img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/7EXQ6FQ4HHJ2FTDSB4TEN8JA0Q.png" alt="">
+    <img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/2DK05KCPEM8XHABC63HR8RSFST.png" alt="">
+    <img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/3BZ9MGG9Y66MTC7CH1C3ZSXVCC.png" alt="">
+    <img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/6XV87NRWBY4E0AB0PQWKWTCJZ8.png" alt="">
+    <img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/585XN62K633R2Y11X2Q429Q5NX.png" alt="">
+    <img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/5WHN5E6G4HFTBR9X8J1C47JHJZ.png" alt="">
+    <img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/3EXD87A0GFCJWSC4VRQQN3FV01.png" alt="">
+    <img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/7H8VBPR19TFF0BKKGZEKPR48R8.png" alt="">
+    <img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/0GGFX6AN1Q5SMHH2T29ME3ZXQH.png" alt="">
+    <img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/2TPC86J5JZ9KAG5EZRY6FAEX1X.png" alt="">
+    <img src="https://app.paper.design/file-assets/01M75B5PJDJWFYAADTXPJVMXPT/65YAXZH686QYPETEH3M20TX1SM.png" alt="">
+  </div>
+  <div class="dash"></div>
+
+  <div class="footer__in">
+    <div class="offices">
+      <div><h5>Baerz &amp; Co Netherlands – Head Quarters</h5><p>Keizersgracht 327<br>1016 EE Amsterdam, the Netherlands</p></div>
+      <div><h5>Baerz &amp; Co Belgium</h5><p>Frans Standaertlei<br>2180 Mariaburg-Ekeren, Belgium</p></div>
+      <div><h5>Baerz &amp; Co Luxembourg</h5><p>80, Grand-Rue<br>L-9905 Troisvierges, Luxembourg</p></div>
+      <div><h5>Baerz &amp; Co Ireland</h5><p>4 Main Street<br>P25R3K4 Midleton, Ireland</p></div>
+      <div><h5>Baerz &amp; Co France</h5><p>591 boulevard du Cerceron<br>83700 Saint-Raphaël, France</p></div>
+      <div><h5>Baerz &amp; Co Spain</h5><p>Avda. Américo Vespucio 20A-11<br>29604 Marbella, Spain</p></div>
+      <div><h5>Baerz &amp; Co Balearic Islands</h5><p>Carrer Brismar 6<br>07157 Port d'Andratx, Islas Baleares, Spain</p></div>
+      <div><h5>Baerz &amp; Co Portugal</h5><p>Rua das Estrelas, Edificio Bacara 507<br>8125-468 Quarteira, Vilamoura, Portugal</p></div>
+      <div><h5>Baerz &amp; Co Austria</h5><p>Kitzbüheler Straße 71<br>A-6365 Kirchberg in Tirol, Austria</p></div>
+      <div><h5>Baerz &amp; Co Italy</h5><p>Salita San Sebastiano sn<br>18035 Dolceacqua, Italy</p></div>
+      <div><h5>Baerz &amp; Co Greece</h5><p>Aigyptou 10<br>16562 Glyfada, Greece</p></div>
+      <div><h5>Baerz &amp; Co Montenegro</h5><p>Dubovica Lux bb<br>85310 Budva, Montenegro</p></div>
+      <div><h5>Baerz &amp; Co Croatia</h5><p>15 Gajeva Street<br>10000 Zagreb, Croatia</p></div>
+      <div><h5>Baerz &amp; Co Cyprus</h5><p>8 Ioanni Kondylaki Street<br>3026 Limassol, Cyprus</p></div>
+      <div><h5>Baerz &amp; Co Dubai</h5><p>Media One Hotel – Office Tower<br>Dubai Media City, UAE</p></div>
+      <div><h5>Baerz &amp; Co Mexico</h5><p>Residence Inn Calle 3-A 272 X 20 A, Xcumpich<br>97204 Mérida-Yucatan, Mexico</p></div>
+      <div><h5>Baerz &amp; Co Netherlands Antilles</h5><p>Kaya Gob N Debrot 14<br>Kralendijk, Netherlands Antilles</p></div>
+      <div><h5>Baerz &amp; Co Auctions Switzerland</h5><p>Rue de Zurich 6<br>1201 Genève, Switzerland</p></div>
+    </div>
+  </div>
+
+  <div class="legal">
+    <div class="dash"></div>
+    <ul><li>Terms of use</li><li>Privacy policy</li><li>Cookie policy</li><li>Consent Preferences</li><li>Acceptable use policy</li></ul>
+    <div class="dash"></div>
+    <small>Baerz &amp; Co | All rights reserved</small>
+  </div>
+  <div class="footer__mark" aria-hidden="true">Baerz &amp; Co</div>
+</footer>
+
+</body>
+</html>
