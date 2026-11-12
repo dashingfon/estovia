@@ -1,0 +1,1 @@
+import"./chunks/infinity-slider-logos-DnIaAkTH.js";const i=1024;function o(){const e=document.querySelectorAll("[data-footer-group]");e.length&&e.forEach(r=>{const t=r.querySelector("[data-footer-group-trigger]");t&&t.addEventListener("click",()=>{if(window.innerWidth>i)return;const n=r.classList.toggle("is-open");t.setAttribute("aria-expanded",String(n))})})}o();

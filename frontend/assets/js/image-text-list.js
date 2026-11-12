@@ -1,0 +1,1 @@
+function i(){const r=document.querySelectorAll(".image-text-list"),s=new IntersectionObserver(e=>{e.forEach(t=>{t.isIntersecting&&(t.target.classList.add("is-visible"),s.unobserve(t.target))})},{threshold:.2});r.forEach(e=>s.observe(e))}window.addEventListener("DOMContentLoaded",()=>{i()});
