@@ -1,0 +1,1 @@
+const e={required:"This field is required.",email:"Please enter a valid email address.",phone:"Please enter a valid phone number.",text:"Please fill out this field correctly.",message:"Please enter your message.",networkError:"Something went wrong. Please try again later.",genericSuccess:"Thank you for Submitting!"};export{e};
