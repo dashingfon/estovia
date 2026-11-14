@@ -1,1 +1,197 @@
-var h=Object.defineProperty;var S=(o,e,t)=>e in o?h(o,e,{enumerable:!0,configurable:!0,writable:!0,value:t}):o[e]=t;var a=(o,e,t)=>S(o,typeof e!="symbol"?e+"":e,t);import{A as E}from"./chunks/ApiService-Dc-2LBYs.js";import{a as b,m as g,v as d}from"./chunks/formValidators-CRgHiNYQ.js";import{c as v}from"./chunks/recaptcha-C9PLnSeW.js";import{e as c}from"./chunks/validationConstants-D1c-69Ub.js";const F=1e4,l=".contact__field, [data-field], .consent",y=".contact__card, [data-form-card]",m=".contact__interactive-view, [data-form-view]",q=".contact__success-body, [data-success-body]";class w{constructor(e){a(this,"form");a(this,"card");a(this,"isSubmitting",!1);a(this,"resetTimeoutId",null);a(this,"handleSubmit",e=>{if(e.preventDefault(),this.isSubmitting)return;let t=!0;this.form.querySelectorAll("[data-validate], [required]").forEach(s=>{const i=s;this.validateField(i)||(t=!1)}),t&&(this.isSubmitting=!0,this.submitFormData())});this.form=e,this.card=this.form.closest(y),this.init()}init(){this.form.removeEventListener("submit",this.handleSubmit),this.form.addEventListener("submit",e=>this.handleSubmit(e)),this.form.querySelectorAll('[data-validate="phone"]').forEach(e=>{b(e)}),this.form.querySelectorAll("[data-validate]").forEach(e=>{e.addEventListener("input",()=>{const t=e;this.clearFieldError(t),this.showFieldNotice(t,g(t))})}),this.form.querySelectorAll('input[type="checkbox"][required]').forEach(e=>{e.addEventListener("change",()=>{e.closest(".field--error")&&this.validateField(e)})})}async submitFormData(){const e=this.form.getAttribute("action")||window.location.href;this.setLoadingState(!0),this.clearGlobalFormError();try{const t=await v(this.form),r=await E.postForm(e,t);r.success?this.renderSuccessState(r.msg??""):(this.showGlobalFormError(r.msg||r.err||r.error||c.networkError),this.isSubmitting=!1)}catch{this.showGlobalFormError(c.networkError),this.isSubmitting=!1}finally{this.setLoadingState(!1)}}validateField(e){const t=e.hasAttribute("required"),r=e.getAttribute("data-error-required");if(this.clearFieldError(e),e.type==="checkbox")return t&&!e.checked?(this.showFieldError(e,r||c.required),!1):!0;const s=e.value.trim(),i=e.getAttribute("data-validate"),f=e.getAttribute("data-error-mismatch"),n=e.getAttribute("data-error-minlength");return t&&!s?(this.showFieldError(e,r||c.required),!1):s&&i==="email"&&s.length<6?(this.showFieldError(e,n||"Email address must be at least 6 characters."),!1):s&&i==="message"&&s.length<4?(this.showFieldError(e,n||"Message must be at least 4 characters."),!1):s&&i&&d[i]&&!d[i].test(s)?(this.showFieldError(e,f||c[i]),!1):!0}showFieldNotice(e,t){const r=e.closest(l);if(!r)return;let s=r.querySelector(".error-text");if(!t){s&&!r.classList.contains("field--error")&&(s.textContent="");return}s||(s=document.createElement("span"),s.className="error-text",r.appendChild(s)),s.textContent=t}showFieldError(e,t){const r=e.closest(l);if(!r)return;r.classList.add("field--error");let s=r.querySelector(".error-text");s||(s=document.createElement("span"),s.className="error-text",r.appendChild(s)),s.textContent=t}clearFieldError(e){const t=e.closest(l);if(!t)return;t.classList.remove("field--error");const r=t.querySelector(".error-text");r&&r.remove()}getSubmitButton(){return document.querySelector(`button[form="${this.form.id}"]`)??this.form.querySelector('button[type="submit"]')}setLoadingState(e){const t=this.getSubmitButton();t&&(t.disabled=e,t.classList.toggle("btn--loading",e))}showGlobalFormError(e){let t=this.form.querySelector(".form-global-error");t||(t=document.createElement("div"),t.className="form-global-error",this.form.prepend(t)),t.textContent=e}clearGlobalFormError(){const e=this.form.querySelector(".form-global-error");e&&e.remove()}renderSuccessState(e){if(this.resetTimeoutId&&window.clearTimeout(this.resetTimeoutId),this.card){const t=this.card.querySelector(m),r=this.card.querySelector(q);r&&e&&(r.textContent=e),t&&t.classList.add("is-success-fade"),this.card.classList.add("is-success-active")}else{let t=this.form.querySelector(".form-success-note");t||(t=document.createElement("div"),t.className="form-success-note",this.form.prepend(t)),t.textContent=(e||c.genericSuccess)??"Thank you!"}this.resetTimeoutId=window.setTimeout(()=>this.resetFormState(),F)}resetFormState(){var e;if(this.card){const t=this.card.querySelector(m);t&&t.classList.remove("is-success-fade"),this.card.classList.remove("is-success-active")}else(e=this.form.querySelector(".form-success-note"))==null||e.remove();this.form.reset(),this.isSubmitting=!1}}const u=()=>{document.querySelectorAll(".single-property-contact").forEach(o=>{o.querySelectorAll(".contact__form, [data-validate-form]").forEach(e=>{e.dataset.leadFormBound!=="true"&&(e.dataset.leadFormBound="true",new w(e))})})};document.readyState==="loading"?document.addEventListener("DOMContentLoaded",u):u();
+var h = Object.defineProperty;
+var S = (o, e, t) =>
+  e in o
+    ? h(o, e, { enumerable: !0, configurable: !0, writable: !0, value: t })
+    : (o[e] = t);
+var a = (o, e, t) => S(o, typeof e != "symbol" ? e + "" : e, t);
+import { A as E } from "./chunks/ApiService-Dc-2LBYs.js";
+import { a as b, m as g, v as d } from "./chunks/formValidators-CRgHiNYQ.js";
+import { c as v } from "./chunks/recaptcha-C9PLnSeW.js";
+import { e as c } from "./chunks/validationConstants-D1c-69Ub.js";
+const F = 1e4,
+  l = ".contact__field, [data-field], .consent",
+  y = ".contact__card, [data-form-card]",
+  m = ".contact__interactive-view, [data-form-view]",
+  q = ".contact__success-body, [data-success-body]";
+class w {
+  constructor(e) {
+    a(this, "form");
+    a(this, "card");
+    a(this, "isSubmitting", !1);
+    a(this, "resetTimeoutId", null);
+    a(this, "handleSubmit", (e) => {
+      if ((e.preventDefault(), this.isSubmitting)) return;
+      let t = !0;
+      (this.form
+        .querySelectorAll("[data-validate], [required]")
+        .forEach((s) => {
+          const i = s;
+          this.validateField(i) || (t = !1);
+        }),
+        t && ((this.isSubmitting = !0), this.submitFormData()));
+    });
+    ((this.form = e), (this.card = this.form.closest(y)), this.init());
+  }
+  init() {
+    (this.form.removeEventListener("submit", this.handleSubmit),
+      this.form.addEventListener("submit", (e) => this.handleSubmit(e)),
+      this.form.querySelectorAll('[data-validate="phone"]').forEach((e) => {
+        b(e);
+      }),
+      this.form.querySelectorAll("[data-validate]").forEach((e) => {
+        e.addEventListener("input", () => {
+          const t = e;
+          (this.clearFieldError(t), this.showFieldNotice(t, g(t)));
+        });
+      }),
+      this.form
+        .querySelectorAll('input[type="checkbox"][required]')
+        .forEach((e) => {
+          e.addEventListener("change", () => {
+            e.closest(".field--error") && this.validateField(e);
+          });
+        }));
+  }
+  async submitFormData() {
+    const e = this.form.getAttribute("action") || window.location.href;
+    (this.setLoadingState(!0), this.clearGlobalFormError());
+    try {
+      const t = await v(this.form),
+        r = await E.postForm(e, t);
+      r.success
+        ? this.renderSuccessState(r.msg ?? "")
+        : (this.showGlobalFormError(
+            r.msg || r.err || r.error || c.networkError,
+          ),
+          (this.isSubmitting = !1));
+    } catch {
+      (this.showGlobalFormError(c.networkError), (this.isSubmitting = !1));
+    } finally {
+      this.setLoadingState(!1);
+    }
+  }
+  validateField(e) {
+    const t = e.hasAttribute("required"),
+      r = e.getAttribute("data-error-required");
+    if ((this.clearFieldError(e), e.type === "checkbox"))
+      return t && !e.checked
+        ? (this.showFieldError(e, r || c.required), !1)
+        : !0;
+    const s = e.value.trim(),
+      i = e.getAttribute("data-validate"),
+      f = e.getAttribute("data-error-mismatch"),
+      n = e.getAttribute("data-error-minlength");
+    return t && !s
+      ? (this.showFieldError(e, r || c.required), !1)
+      : s && i === "email" && s.length < 6
+        ? (this.showFieldError(
+            e,
+            n || "Email address must be at least 6 characters.",
+          ),
+          !1)
+        : s && i === "message" && s.length < 4
+          ? (this.showFieldError(
+              e,
+              n || "Message must be at least 4 characters.",
+            ),
+            !1)
+          : s && i && d[i] && !d[i].test(s)
+            ? (this.showFieldError(e, f || c[i]), !1)
+            : !0;
+  }
+  showFieldNotice(e, t) {
+    const r = e.closest(l);
+    if (!r) return;
+    let s = r.querySelector(".error-text");
+    if (!t) {
+      s && !r.classList.contains("field--error") && (s.textContent = "");
+      return;
+    }
+    (s ||
+      ((s = document.createElement("span")),
+      (s.className = "error-text"),
+      r.appendChild(s)),
+      (s.textContent = t));
+  }
+  showFieldError(e, t) {
+    const r = e.closest(l);
+    if (!r) return;
+    r.classList.add("field--error");
+    let s = r.querySelector(".error-text");
+    (s ||
+      ((s = document.createElement("span")),
+      (s.className = "error-text"),
+      r.appendChild(s)),
+      (s.textContent = t));
+  }
+  clearFieldError(e) {
+    const t = e.closest(l);
+    if (!t) return;
+    t.classList.remove("field--error");
+    const r = t.querySelector(".error-text");
+    r && r.remove();
+  }
+  getSubmitButton() {
+    return (
+      document.querySelector(`button[form="${this.form.id}"]`) ??
+      this.form.querySelector('button[type="submit"]')
+    );
+  }
+  setLoadingState(e) {
+    const t = this.getSubmitButton();
+    t && ((t.disabled = e), t.classList.toggle("btn--loading", e));
+  }
+  showGlobalFormError(e) {
+    let t = this.form.querySelector(".form-global-error");
+    (t ||
+      ((t = document.createElement("div")),
+      (t.className = "form-global-error"),
+      this.form.prepend(t)),
+      (t.textContent = e));
+  }
+  clearGlobalFormError() {
+    const e = this.form.querySelector(".form-global-error");
+    e && e.remove();
+  }
+  renderSuccessState(e) {
+    if (
+      (this.resetTimeoutId && window.clearTimeout(this.resetTimeoutId),
+      this.card)
+    ) {
+      const t = this.card.querySelector(m),
+        r = this.card.querySelector(q);
+      (r && e && (r.textContent = e),
+        t && t.classList.add("is-success-fade"),
+        this.card.classList.add("is-success-active"));
+    } else {
+      let t = this.form.querySelector(".form-success-note");
+      (t ||
+        ((t = document.createElement("div")),
+        (t.className = "form-success-note"),
+        this.form.prepend(t)),
+        (t.textContent = (e || c.genericSuccess) ?? "Thank you!"));
+    }
+    this.resetTimeoutId = window.setTimeout(() => this.resetFormState(), F);
+  }
+  resetFormState() {
+    var e;
+    if (this.card) {
+      const t = this.card.querySelector(m);
+      (t && t.classList.remove("is-success-fade"),
+        this.card.classList.remove("is-success-active"));
+    } else
+      (e = this.form.querySelector(".form-success-note")) == null || e.remove();
+    (this.form.reset(), (this.isSubmitting = !1));
+  }
+}
+const u = () => {
+  document.querySelectorAll(".single-property-contact").forEach((o) => {
+    o.querySelectorAll(".contact__form, [data-validate-form]").forEach((e) => {
+      e.dataset.leadFormBound !== "true" &&
+        ((e.dataset.leadFormBound = "true"), new w(e));
+    });
+  });
+};
+document.readyState === "loading"
+  ? document.addEventListener("DOMContentLoaded", u)
+  : u();

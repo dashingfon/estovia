@@ -6,7 +6,7 @@
     * read
 - [ ] house search
     * houses
-    * map
+    * maps
     * filter
 - [ ] forms
     * sell form
@@ -16,8 +16,7 @@
 - [ ] copy
     * socials
     *
-- [ ] maps
-- [ ] 
+
 
 
 # pages
@@ -38,4 +37,13 @@
 - [ ] sell private
 - [ ] sell professional
 - [ ] terms of use
+
+
+# Properties
+
+- [ ] details
+  - [ ] price
+  - [ ] 
+- [ ] location
 - [ ] 
+
