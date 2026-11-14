@@ -1,17 +1,41 @@
+# functionalities
 
-1. hero search bar
-2. faourites
+- [ ] hero search bar
+- [ ] faourites
     * store
     * read
-3. house search
+- [ ] house search
     * houses
     * map
     * filter
-4. forms
+- [ ] forms
     * sell form
     * contact
     * 
-5. images
-6. copy
+- [ ] images
+- [ ] copy
     * socials
     *
+- [ ] maps
+- [ ] 
+
+
+# pages
+
+- [ ] home
+- [ ] buy
+- [ ] contact
+- [ ] cookie policy
+- [ ] favourites
+- [ ] property
+- [ ] news
+- [ ] offmarket sell
+- [ ] offmarket buy
+- [ ] operational team
+- [ ] our company
+- [ ] privacy policy
+- [ ] property finders
+- [ ] sell private
+- [ ] sell professional
+- [ ] terms of use
+- [ ] 
