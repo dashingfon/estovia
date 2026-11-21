@@ -526,6 +526,91 @@ Resend API documentation
 My recommendation: Use this Edge Function approach rather than connecting your static website directly to the database and trying to send emails from browser JavaScript. It keeps your credentials secure, centralizes validation, and gives you room to add more functionality later.
 
 
+# cities
+
+what states and cities in america are booming for real estate, that most people want to buy properties in like calirfornia and tenessese and florida, give me 16
+If you're looking at the US real estate market for property investment, development, rentals, or building a property marketplace, I'd focus on cities experiencing strong population growth, employment opportunities, housing demand, and infrastructure development.
+
+Here are 16 US cities and their states worth tracking, including established markets like California and Florida and emerging markets across the Sun Belt.
+
+16 booming US real estate markets to consider (2026)
+A mix of established property markets, fast-growing cities, and emerging investment destinations.
+
+1. Los Angeles — California
+
+(Established market)
+
+Large property market, international demand, entertainment industry, and strong rental markets.
+
+2. Miami — Florida
+International buyers, luxury condos, tourism, and a strong rental market.
+
+3. Nashville — Tennessee
+Population growth, healthcare, entertainment, and business expansion.
+
+4. Austin — Texas
+Technology companies, employment opportunities, and population growth.
+
+5. Dallas–Fort Worth — Texas
+Corporate relocations, logistics, employment, and large suburban housing developments.
+
+6. Orlando — Florida
+Tourism, hospitality, population growth, and residential rental demand.
+
+7. Tampa — Florida
+Healthcare, finance, coastal living, and residential development.
+
+8. Charlotte — North Carolina
+Banking and finance, high-skilled employment, and millennial migration.
+
+9. Raleigh — North Carolina
+Technology, universities, research institutions, and a growing professional population.
+
+10. Atlanta — Georgia
+Corporate headquarters, logistics, entertainment, and a large housing market.
+
+11. Phoenix — Arizona
+Population growth, semiconductor investment, and significant multifamily housing demand.
+
+12. Houston — Texas
+Energy, healthcare, aerospace, and relatively accessible housing prices.
+
+13. Jacksonville — Florida
+Migration, logistics, port activity, and comparatively affordable housing opportunities.
+
+14. Charleston — South Carolina
+Population growth, tourism, manufacturing, and coastal property demand.
+
+15. Columbus — Ohio
+Technology, education, manufacturing investment, and relative housing affordability.
+
+16. Salt Lake City — Utah
+Technology, finance, outdoor-lifestyle appeal, and a growing regional economy.
+
+Geographic overview
+Which markets deserve the most attention?
+The National Association of REALTORS' 2026 housing research highlights Charlotte, Raleigh, Charleston, Jacksonville and other markets for their combination of buyer demand, affordability, population trends and employment growth.
+
+For multifamily housing, Cushman & Wakefield's 2026 research also identifies Phoenix, Dallas–Fort Worth, Austin, Charlotte, Atlanta and Miami among markets with significant projected rental demand.
+
+One important distinction: a city experiencing population growth isn't necessarily a city where property prices or rental returns are rising. Insurance, property taxes, construction supply, vacancy rates and local regulations matter.
+
+My recommendation: If you're building a real-estate platform and want to target US buyers and sellers, I'd initially prioritize:
+
+Miami, Florida
+Dallas, Texas
+Austin, Texas
+Atlanta, Georgia
+Charlotte, North Carolina
+Nashville, Tennessee
+Orlando, Florida
+Raleigh, North Carolina
+These give you a useful combination of established property markets and growing metropolitan areas.
+
+For further research, I'd use the National Association of REALTORS and US Census Bureau to track actual market demand.
+
+
+
 
 
 
