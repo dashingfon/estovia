@@ -202,6 +202,8 @@ class v {
     )
       return;
     (this.activateCountry(e), this.renderCountryPreview(e));
+
+
     const n = d.get(t, this.language);
     if (
       (n ? this.renderRegionsResponse(n) : this.renderRegionsLoading(),
@@ -217,6 +219,8 @@ class v {
     } catch {
       this.activeCountryCode === t && this.renderRegionsError();
     }
+
+
     this.updateScrollableBorders();
   }
   activateCountry(e) {
